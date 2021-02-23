@@ -1,0 +1,30 @@
+<form #loginForm="ngForm">
+
+    <div class="login-wrapper">
+
+        <div class="input-wrapper">
+            <span class="p-float-label">
+                <input name="email" id="email" type="text" pInputText [(ngModel)]="user.email"
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" required>
+                <label for="email">{{ 'email' | localize }}</label>
+            </span>
+        </div>
+
+        <div class="input-wrapper">
+            <span class="p-float-label">
+                <input name="password" id="password" type="text" pInputText [(ngModel)]="user.password" required>
+                <label for="password"> {{ 'password' | localize }} </label>
+            </span>
+        </div>
+
+        <div class="btn-wrapper">
+            <button type="submit" pButton pRipple label="{{ 'login' | localize }}" (click)="loginClick()"></button>
+        </div>
+
+        <div class="href-wrapper">
+            <a routerLink="/account/register"> {{ "don't have an account yet?" | localize }} </a>
+        </div>
+
+    </div>
+
+</form>

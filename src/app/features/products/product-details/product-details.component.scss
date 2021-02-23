@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    padding: 15px;
+    .attachments-wrapper {
+        .small-attachments-wrapper {
+            display: inline-block;
+
+            .small-attachment {
+                width: 50px;
+                height: 50px;
+                border: 1px solid black;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .primary-attachment {
+            width: 220px;
+            height: 250px;
+            display: inline-block;
+            margin-left: 15px;
+            border: 1px solid black;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .details-wrapper {
+        flex: 1;
+
+        .name-wrapper {
+            margin-left: 15px;
+            font-size: 28px;
+            font-weight: bolder;
+            border: 2px solid black;
+        }
+        .price-wrapper {
+            margin: 15px;
+        }
+        .details {
+            margin: 30px 0px 0px 15px;
+        }
+    }
+    .stock-cart-wrapper {
+        border: 1px solid black;
+        margin-left: 15px;
+        width: 200px;
+
+        .stock {
+            background-color: red;
+            color: white;
+            margin: 5px;
+            font-size: 20px;
+        }
+        .cart {
+            text-align: center;
+            margin-top: 30px;
+            button {
+                background-color: #ff9800;
+                border: 1px solid #ff9800;
+            }
+        }
+    }
+}
+.textarea-wrapper {
+    display: flex;
+    margin: 15px;
+
+    textarea {
+        flex: 1;
+        min-height: 100px;
+    }
+}
+.btn-wrapper {
+    margin: 15px;
+}
+
+.comment-wrapper {
+    margin: 15px;
+    display: flex;
+    border: 1px solid black;
+
+    .comment-details {
+        margin: 5px;
+        width: 200px;
+
+        .avtor {
+            margin-bottom: 5px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    .description {
+        flex: 1;
+    }
+}

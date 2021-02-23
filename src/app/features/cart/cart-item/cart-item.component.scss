@@ -1,0 +1,76 @@
+.container {
+    margin: 15px;
+    display: flex;
+    border: 2px solid black;
+
+    .img-wrapper {
+        width: 180px;
+        height: 180px;
+        border: 1px solid black;
+        margin: 15px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .details-wrapper {
+        flex: 1;
+        margin: 15px;
+
+        .name-wrapper {
+            font-size: 26px;
+            font-weight: bolder;
+        }
+
+        .price-wrapper {
+            margin-top: 20px;
+
+            .currency,
+            .decimal {
+                vertical-align: top;
+                font-weight: bold;
+            }
+            .integer {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+    }
+    .quantity-wrapper {
+        margin-top: 20px;
+        .quantity {
+            display: inline-block;
+            width: 150px;
+        }
+        .dropdown {
+            display: inline-block;
+        }
+    }
+    .right-menu-wrapper {
+        margin: 15px;
+        position: relative;
+
+        .remove {
+            color: red;
+            cursor: pointer;
+        }
+        .total-price {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 150px;
+            .currency,
+            .decimal {
+                vertical-align: top;
+            }
+            .currency {
+                margin-left: 15px;
+            }
+            .integer {
+                font-weight: bold;
+                font-size: 24px;
+            }
+        }
+    }
+}

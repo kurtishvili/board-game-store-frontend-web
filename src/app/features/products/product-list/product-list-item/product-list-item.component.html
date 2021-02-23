@@ -1,0 +1,30 @@
+<div class="content-wrapper">
+    <div class="img-wrapper">
+        <img [src]="product.primaryAttachmentUrl | secure | async" *ngIf="product.primaryAttachmentUrl!=null"
+            [routerLink]="['details', product.id]">
+    </div>
+    <div class="details-wrapper">
+        <div class="name-wrapper" [routerLink]="['details', product.id]">{{product.name}} </div>
+        <div class="price-wrapper">
+            <span class="currency">$</span>
+            <span class="integer">{{ priceInteger  }} </span>
+            <span class="decimal"> {{ priceDecimal }} </span>
+        </div>
+
+        <div class="add-cart-btn-wrapper">
+            <button pButton pRipple type="button" label="Add To Cart" (click)="addCartClick()"></button>
+        </div>
+    </div>
+
+    <div class="add-wishlist" (click)="addWishlistClick()" *ngIf="!product.isInWishList">
+        <span class="material-icons">
+            favorite_border
+        </span>
+    </div>
+
+    <div class="remove-wishlist" (click)="removeWishlistClick()" *ngIf="product.isInWishList">
+        <span class="material-icons">
+            favorite
+        </span>
+    </div>
+</div>

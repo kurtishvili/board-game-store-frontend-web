@@ -1,0 +1,55 @@
+<form>
+
+    <div class="filter-wrapper">
+
+        <i class="pi icon" [class.rotate]="!showContainer" [class.pi-times]="showContainer"
+            [class.pi-bars]="!showContainer" (click)="toggleFilterClick()"></i>
+
+        <div *ngIf="showContainer" class="container">
+            <div class="filter-field-wrapper">
+                <p-dropdown name="artist" [options]="artists" [(ngModel)]="filter.artistId" placeholder="Select Artist"
+                    [showClear]="true">
+                </p-dropdown>
+            </div>
+
+            <div class="filter-field-wrapper">
+                <p-dropdown name="designer" [options]="designers" [(ngModel)]="filter.designerId"
+                    placeholder="Select Designer" [showClear]="true">
+                </p-dropdown>
+            </div>
+
+            <div class="filter-field-wrapper">
+                <p-dropdown name="mechanic" [options]="mechanics" [(ngModel)]="filter.mechanicsId"
+                    placeholder="Select Mechanic" [showClear]="true">
+                </p-dropdown>
+            </div>
+
+            <div class="price-wrapper filter-field-wrapper">
+                <div class="title">Price: </div>
+                <div class="input">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText [(ngModel)]="filter.priceFrom" name="price-from">
+                        <label for="float-input">From</label>
+                    </span>
+                </div>
+
+                <div class="input">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText [(ngModel)]="filter.priceTo" name="price-to">
+                        <label for="float-input">To</label>
+                    </span>
+                </div>
+            </div>
+
+            <button pButton pRipple type="submit" label="Search" class="search-btn" icon="pi pi-search"
+                (click)="searchClick()"></button>
+
+            <button pButton pRipple type="submit" label="Clear" class="clear-btn" icon="pi pi-times-circle"
+                (click)="clearClick()"></button>
+
+        </div>
+
+
+
+    </div>
+</form>

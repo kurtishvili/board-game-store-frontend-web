@@ -1,0 +1,5 @@
+<div class="container">
+    <app-user-wishlist-item *ngFor="let item of wishlistItems" [wishlist]="item"
+        (onDelete)="removeFromWishlist($event)">
+    </app-user-wishlist-item>
+</div>

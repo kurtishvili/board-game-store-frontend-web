@@ -1,0 +1,17 @@
+.container{
+    margin: 15px 0px;
+    .table-wrapper{
+        th{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+    }
+    .text{
+        margin: 0px 15px 15px 15px;
+        font-size: 24px;
+        border-bottom: 1px solid black;
+        font-weight: bold;
+        width: 75px;
+    }
+}

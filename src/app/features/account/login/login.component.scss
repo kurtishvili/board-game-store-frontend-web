@@ -1,0 +1,27 @@
+.login-wrapper {
+    width: 300px;
+    margin: 100px auto 0px;
+    padding: 20px 12px 5px;
+    border: 2px solid #2196f3;
+
+    .input-wrapper {
+        margin-bottom: 22px;
+        border: 1px solid #2196f3;
+    }
+
+    input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn-wrapper {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .href-wrapper {
+        text-align: right;
+        margin-top: 35px;
+    }
+}
+

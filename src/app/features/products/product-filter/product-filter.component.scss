@@ -1,0 +1,55 @@
+.filter-wrapper {
+    position: relative;
+    display: inline-block;
+    min-width: 35px;
+    box-shadow: 1px 1px 3px 0px #b4b4b4;
+    min-height: 350px;
+    height: calc(100vh - 90px);
+    margin-top: 10px;
+    padding: 30px 10px;
+
+    .icon {
+        font-size: 25px;
+        position: absolute;
+        z-index: 1000;
+        right: 5px;
+        top: 3px;
+        cursor: pointer;
+        color: #2196f3;
+        transition: transform 0.6s ease-out;
+
+        &.rotate {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .container {
+        width: 250px;
+
+        position: relative;
+
+        .filter-field-wrapper {
+            margin-bottom: 22px;
+        }
+        .price-wrapper {
+            display: flex;
+
+            .title {
+                line-height: 40px;
+            }
+
+            .input {
+                flex: 1;
+                margin-left: 5px;
+            }
+        }
+        .search-btn {
+            width: 100%;
+        }
+
+        .clear-btn{
+            width: 100%;
+            margin-top: 15px;
+        }
+    }
+}

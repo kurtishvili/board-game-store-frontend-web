@@ -1,0 +1,54 @@
+<form #registerForm="ngForm">
+    <div class="content">
+        <div class="register-wrapper">
+
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input id="email" type="text" pInputText [(ngModel)]="user.email" name="email" required>
+                    <label for="email"> {{'email' | localize}} </label>
+                </span>
+            </div>
+
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input id="firstname" type="text" pInputText [(ngModel)]="user.firstname" name="firstname" required>
+                    <label for="firstname">{{'firstname' | localize}}</label>
+                </span>
+            </div>
+
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input id="lastname" type="text" pInputText [(ngModel)]="user.lastname" name="lastname" required>
+                    <label for="lastname">{{'lastname' | localize}} </label>
+                </span>
+            </div>
+
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input id="password" type="password" pInputText [(ngModel)]="user.password" name="password"
+                        required>
+                    <label for="password">{{'password' | localize}}</label>
+                </span>
+            </div>
+
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input id="repeatPassword" type="password" pInputText [(ngModel)]="user.repeatPassword"
+                        name="repeatPassword" required>
+                    <label for="repeatPassword">{{'repeat password' | localize}}</label>
+                </span>
+            </div>
+
+            <div class="btn-wrapper">
+                <button pButton pRipple type="submit" label=" {{'register' | localize}} " (click)="registerClick()"
+                    [disabled]="registerForm.invalid"></button>
+            </div>
+
+            <div class="href-wrapper">
+                <a routerLink="/account/login"> {{'already have an account?' | localize}}</a>
+            </div>
+
+        </div>
+
+    </div>
+</form>

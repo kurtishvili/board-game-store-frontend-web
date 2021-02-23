@@ -1,0 +1,11 @@
+<div class="container">
+
+    <div class="img-wrapper">
+        <img [src]="wishlist.primaryAttachmentUrl | secure | async" *ngIf="wishlist.primaryAttachmentUrl!=null">
+       <img class="delete" src="https://cdn.iconscout.com/icon/premium/png-512-thumb/delete-1432400-1211078.png" (click)="deleteClick()" >
+    </div>
+
+    <div class="name-wrapper">{{wishlist.name}} </div>
+    <div class="price-wrapper">$ {{wishlist.price  }} </div>
+
+</div>

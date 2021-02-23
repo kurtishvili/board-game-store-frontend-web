@@ -1,0 +1,12 @@
+{
+    "email": "მეილი",
+    "firstname": "სახელი",
+    "register": "რეგისტრაცია",
+    "lastname": "გვარი",
+    "password": "პასვორდი",
+    "repeat password": "გაიმეორეთ პასვორდი",
+    "already have an account?": "უკვე გაქვთ ექაუნთი?",
+    "don't have an account yet?": "არ გაქვთ ჯერ ექაუნთი?",
+    "login": "შესვლა"
+    
+}

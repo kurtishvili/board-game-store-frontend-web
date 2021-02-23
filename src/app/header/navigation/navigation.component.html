@@ -1,0 +1,41 @@
+<div class="navigation-wrapper">
+
+    <div class="home-icon-wrapper" routerLink="/">
+        <div class="icon material-icons">
+            videogame_asset
+        </div>
+        <div class="title">BGS</div>
+    </div>
+
+    <div class="category-dropdown-wrapper">
+        <p-dropdown name="category" [options]="categories" [(ngModel)]="filter.categoryId" placeholder="Select category"
+            [showClear]="true" (onChange)="changeCategory()">
+        </p-dropdown>
+    </div>
+
+    <form class="search-wrapper">
+        <input type="text" pInputText placeholder="Search" [(ngModel)]="filter.name" name="name">
+        <button pButton pRipple type="submit" icon="pi pi-search"
+            class="p-button-rounded p-button-success p-button-text p-button-lg" (click)="searchClick()"></button>
+    </form>
+
+    <div class="right-menu-wrapper">
+
+        <div class="cart-wrapper" routerLink="/cart">
+            <div class="icon material-icons">
+                add_shopping_cart
+            </div>
+            <div class="number" *ngIf="cartItemCount"> {{cartItemCount}} </div>
+        </div>
+
+        <div class="user-profile-wrapper">
+            <app-user-profile></app-user-profile>
+        </div>
+
+        <div class="language-wrapper">
+            <app-language></app-language>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+.content-wrapper {
+    margin-top: 10px;
+    display: flex;
+    box-shadow: 0px 2px 3px 0px #969696;
+    position: relative;
+    .img-wrapper {
+        border: 1px solid black;
+        width: 130px;
+        height: 150px;
+        margin: 10px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+        }
+    }
+    .details-wrapper {
+        margin: 10px;
+        flex: 1;
+        .name-wrapper {
+            font-size: 24px;
+            cursor: pointer;
+            outline: none;
+        }
+        .price-wrapper {
+            margin-top: 15px;
+            .currency,
+            .decimal {
+                font-size: 16px;
+                vertical-align: top;
+            }
+            .integer {
+                margin-top: 20px;
+                font-size: 24px;
+            }
+        }
+        .add-cart-btn-wrapper {
+            margin-top: 15px;
+            width: 300px;
+            button {
+                background-color: #ff9800e6;
+                border: 1px solid #ff9800e6;
+            }
+        }
+    }
+    .add-wishlist,
+    .remove-wishlist {
+        position: absolute;
+        right: 5px;
+        span {
+            font-size: 35px;
+            cursor: pointer;
+        }
+    }
+}

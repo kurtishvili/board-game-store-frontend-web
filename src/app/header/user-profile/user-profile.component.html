@@ -1,0 +1,14 @@
+<div class="profile-wrapper" spellcheck="false" contentEditable="true" (blur)="showMenu = false;">
+    <div class="icon material-icons" (click)="profileClick()">
+        account_circle
+    </div>
+    <div class="username">Hello, {{ firstname }}</div>
+
+    <div class="menu" *ngIf="showMenu">
+        <a class="menu-item" routerLink="/user/account">My Account</a>
+        <a class="menu-item" routerLink="/user/orders">My Orders</a>
+        <a class="menu-item" routerLink="/user/wishlist">Wishlist</a>
+
+        <div class="btn-sign-out" (click)="signOut()">Sign out</div>
+    </div>
+</div>

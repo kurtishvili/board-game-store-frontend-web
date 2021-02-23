@@ -1,0 +1,213 @@
+<div class="container">
+
+    <div class="img-wrapper">
+        <img [src]="userDetails.avatarUrl " *ngIf="userDetails?.avatarUrl != null">
+        <div class="hover-wrapper">
+            <button pButton pRipple type="button" label="Upload New" name="upload" class="p-button-info upload-btn"
+                icon="pi pi-upload" (click)="uploadClick()"></button>
+
+            <button pButton pRipple type="button" label="Remove" icon="pi pi-trash" class="p-button-danger remove-btn"
+                (click)="removeClick()"></button>
+        </div>
+    </div>
+
+    <form #formUserDetails="ngForm" class="form-user">
+        <ng-container *ngIf="userDetails">
+            <div class="pin-code-wrapper">
+                <label>Pin Code :</label>
+                <span class="pin-code"> {{userDetails.pinCode}} </span>
+            </div>
+
+            <div class="name-wrapper">
+                <label for="firstname">Firstname: </label>
+                <div class="input-wrapper">
+                    <input name="firstname" id="firstname" type="text" pInputText [(ngModel)]="userDetails.firstname"
+                        required>
+                </div>
+            </div>
+
+            <div class="name-wrapper">
+                <label for="lastname">Lastname: </label>
+                <div class="input-wrapper">
+                    <input name="lastname" id="lastname" type="text" pInputText [(ngModel)]="userDetails.lastname"
+                        required>
+                </div>
+            </div>
+
+            <div class="btn-wrapper">
+                <button pButton pRipple type="button" label="Save" (click)="saveUserDetailsClick()"
+                    [disabled]="formUserDetails.invalid"></button>
+            </div>
+
+            <div class="btn-wrapper">
+                <button pButton pRipple type="button" label="Change Password" icon="pi pi-lock"
+                    class="btn-change-password" (click)="changePasswordClick()"></button>
+            </div>
+        </ng-container>
+
+        <div class="balance-wrapper">
+            <span>Balance :</span>
+            <span class="amount">{{userDetails?.balance | currency : 'USD' }} </span>
+            <a (click)="balanceClick()">Add Balance</a>
+
+        </div>
+    </form>
+</div>
+
+<div class="user-details-wrapper">
+
+
+    <form #formAddress="ngForm" class="address-wrapper" *ngIf="userAddress">
+        <div class="title">Address</div>
+
+        <div class="input-wrapper">
+            <label for="fullname">Full name: </label>
+            <input name="fullname" id="fullname" type="text" pInputText [(ngModel)]="userAddress.fullName" required>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="addressLine1">address line 1: </label>
+            <input name="addressLine1" id="addressLine1" type="text" pInputText [(ngModel)]="userAddress.line1"
+                required>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="addressLine2">address line 2: </label>
+            <input name="addressLine2" id="addressLine2" type="text" pInputText [(ngModel)]="userAddress.line2">
+        </div>
+
+        <div class="input-wrapper">
+            <label for="city">City: </label>
+            <input name="city" id="city" type="text" pInputText [(ngModel)]="userAddress.city" required>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="stateProvinceRegion">State/Province/Region: </label>
+            <input name="stateProvinceRegion" id="stateProvinceRegion" type="text" pInputText
+                [(ngModel)]="userAddress.state">
+        </div>
+
+        <div class="input-wrapper">
+            <label for="zipCode">Zip Code: </label>
+            <input name="zipCode" id="zipCode" type="text" pInputText [(ngModel)]="userAddress.zipCode" required>
+        </div>
+
+        <div class="input-wrapper">
+            <label for="phoneNumber">Phone Number: </label>
+            <input name="phoneNumber" id="phoneNumber" type="text" pInputText [(ngModel)]="userAddress.phoneNumber"
+                required>
+        </div>
+
+        <div class="btn-wrapper">
+            <button pButton pRipple type="button" label="Save" icon="pi pi-save" (click)="saveUserAddressClick()"
+                [disabled]="formAddress.invalid"></button>
+        </div>
+
+    </form>
+
+
+    <form #formPayment="ngForm" class="payment-wrapper" *ngIf="userPayment">
+
+        <div class="title">Payment</div>
+
+        <div class="input-wrapper">
+            <label for="nameOnCard">Name on Card: </label>
+            <input name="nameOnCard" id="nameOnCard" type="text" pInputText [(ngModel)]="userPayment.cardholderName"
+                required>
+        </div>
+
+        <div class="card-number-wrapper">
+            <label for="c-number">C Number: </label>
+            <input #cardNumber1Input name="c-number1" type="text" pattern="[0-9]+" minlength="4" maxlength="4"
+                (keyup)="keyupCardNumber1($event)" pInputText [(ngModel)]="userPayment.cardNumber1" required>
+            -
+            <input #cardNumber2Input name="c-number2" type="text" pattern="[0-9]+" minlength="4" maxlength="4"
+                (keyup)="keyupCardNumber2($event)" pInputText [(ngModel)]="userPayment.cardNumber2" required>
+            -
+            <input #cardNumber3Input name="c-number3" type="text" pattern="[0-9]+" minlength="4" maxlength="4"
+                (keyup)="keyupCardNumber3($event)" pInputText [(ngModel)]="userPayment.cardNumber3" required>
+            -
+            <input #cardNumber4Input name="c-number4" type="text" pattern="[0-9]+" minlength="4" maxlength="4"
+                pInputText [(ngModel)]="userPayment.cardNumber4" required>
+        </div>
+
+        <div class="expiration-date-dropdown-wrapper">
+            <label>Expiration Date: </label>
+            <p-dropdown name="month" class="month" [options]="month" [(ngModel)]="userPayment.expirationMonth" required>
+            </p-dropdown>
+            <p-dropdown name="year" [options]="yearOptions" [(ngModel)]="userPayment.expirationYear" required>
+            </p-dropdown>
+        </div>
+
+        <div class="cvv-input-wrapper">
+            <label for="cvv2">CVV2: </label>
+            <input name="cvv2" id="cvv2" type="text" maxlength="4" pInputText [(ngModel)]="userPayment.cvv2" required>
+        </div>
+
+        <div class="btn-wrapper">
+            <button pButton pRipple type="button" label="Save" icon="pi pi-save" (click)="saveUserPaymentDetailsClick()"
+                [disabled]="formPayment.invalid"></button>
+        </div>
+
+    </form>
+
+</div>
+
+<p-dialog header="Change Password" [(visible)]="displayPasswordDialog" [style]="{width: '400px'}" [modal]="true">
+
+    <form #formPassword="ngForm">
+        <div class="password-dialog-wrapper">
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input name="password" id="password" type="password" pInputText
+                        [(ngModel)]="userPassword.oldPassword" required>
+                    <label for="password">Password</label>
+                </span>
+            </div>
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input name="new-password" id="new-password" type="password" pInputText
+                        [(ngModel)]="userPassword.newPassword" required>
+                    <label for="new-password">New Password</label>
+                </span>
+            </div>
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input name="repeat-new-password" id="repeat-new-password" type="password" pInputText
+                        [(ngModel)]="userPassword.repeatNewPassword" required>
+                    <label for="repeat-new-password">Repeat new Password</label>
+                </span>
+            </div>
+            <div class="save-btn">
+                <button pButton pRipple type="submit" label="Save" icon="pi pi-plus" class="p-button-success"
+                    (click)="changePassword()" [disabled]="formPassword.invalid"></button>
+            </div>
+        </div>
+
+    </form>
+</p-dialog>
+
+<p-dialog header="Add Balance" [(visible)]="displayBalanceDialog" [style]="{width: '400px'}" [modal]="true">
+
+    <form #formBalance="ngForm">
+        <div class="balance-dialog-wrapper">
+            <div class="input-wrapper">
+                <span class="p-float-label">
+                    <input name="amount" id="amount" type="number" pInputText [(ngModel)]="balance" required>
+                    <label for="amount">Amount</label>
+                </span>
+                <div class="add-btn">
+                    <button pButton pRipple type="submit" label="Add Balance" icon="pi pi-plus" class="p-button-success"
+                        (click)="addBalance()" [disabled]="formBalance.invalid"></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</p-dialog>
+
+<p-dialog header="Upload Image" [(visible)]="displayUploadDialog" [style]="{width: '550px'}" [modal]="true">
+
+    <p-fileUpload *ngIf="displayUploadDialog" multiple="true" customUpload="true"
+        (uploadHandler)="uploadAttachemnts($event)"></p-fileUpload>
+
+</p-dialog>

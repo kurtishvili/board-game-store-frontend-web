@@ -1,0 +1,17 @@
+<app-cart-item *ngFor="let cartItem of cartItems" [cartItem]="cartItem" (onDelete)="deleteCartItem($event)">
+
+</app-cart-item>
+
+<span class="total"> Total Amount: {{totalAmount | number:'1.0-2'  }} </span>
+
+
+<div class="order-btn-wrapper" *ngIf="cartItems.length">
+    <button pButton pRipple type="button" label="Place Order" (click)="placeOrderClick()">
+        <span class="material-icons">
+            payment
+        </span>
+    </button>
+</div>
+
+
+<p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>

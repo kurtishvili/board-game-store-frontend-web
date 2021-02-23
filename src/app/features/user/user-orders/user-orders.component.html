@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="text">Orders</div>
+    <div class="table-wrapper">
+
+        <p-table [value]="orders">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Order #</th>
+                    <th>Order Date</th>
+                    <th>Total Amount</th>
+                    <th>Order Status</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-order>
+                <tr>
+                    <td>{{order.id}}</td>
+                    <td>{{order.createDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+                    <td>{{order.totalAmount  | currency:'USD'}}</td>
+                    <td>
+                        <span [style.color]="getColor(order.statusId)"> {{order.status}}</span>: {{order.statusUpdateDate | date: 'dd/MM/yyyy HH:mm' }} 
+                    </td>
+                </tr>
+
+            </ng-template>
+        </p-table>
+
+    </div>
+
+</div>
+
+<p-paginator [rows]="paginator.pageSize" [totalRecords]="paginator.totalRecords"
+    [rowsPerPageOptions]="paginator.options" (onPageChange)="onPaginate($event)"></p-paginator>

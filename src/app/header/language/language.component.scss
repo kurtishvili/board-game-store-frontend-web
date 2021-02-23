@@ -1,0 +1,44 @@
+.content-wrapper {
+    position: relative;
+
+    .current-language {
+        cursor: pointer;
+        outline: none;
+        caret-color: transparent;
+
+        img {
+            width: 40px;
+        }
+
+        .language-picker {
+            position: absolute;
+            bottom: 3px;
+            right: 0;
+            transform: translateY(100%);
+            width: 120px;
+            background-color: white;
+            padding: 5px 0;
+            text-align: right;
+            box-shadow: -1px 1px 4px 1px #afafaf;
+            z-index: 1000;
+
+            .picker-item {
+                cursor: pointer;
+
+                &:not(:last-child) {
+                    margin-bottom: 9px;
+                }
+
+                &:hover {
+                    background-color: #e2e2e2;
+                }
+
+                img {
+                    width: 40px;
+                    vertical-align: middle;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.content-wrapper {
+    text-align: center;
+
+    .page-size-dropdown-wrapper {
+        width: 50px;
+        display: inline-block;
+    }
+
+    .sort-order-wrapper {
+        width: 181px;
+        float: right;
+    }
+}
+
+.btn-wrapper {
+    text-align: center;
+    margin-top: 10px;
+
+    button {
+        background-color: #ff9800e6;
+        border: 1px solid #ff9800e6;
+        width: 300px;
+    }
+}
+
+.list-wrapper{
+    height: calc(100vh - 140px);
+    overflow: auto;
+}

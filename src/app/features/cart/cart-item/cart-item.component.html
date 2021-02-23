@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="img-wrapper">
+        <img [src]="cartItem.primaryAttachmentUrl | secure | async" *ngIf="cartItem.primaryAttachmentUrl != null">
+    </div>
+    <div class="details-wrapper">
+        <div class="name-wrapper"> {{cartItem.name}} </div>
+        <div class="price-wrapper">Price:
+            <span class="currency">$</span>
+            <span class="integer"> {{priceInteger}} </span>
+            <span class="decimal"> {{priceDecimal}} </span>
+
+        </div>
+        <div class="quantity-wrapper">
+            <div class="quantity">Quantity: </div>
+            <p-dropdown class="dropdown" [options]="quantities" [(ngModel)]="cartItem.quantity" (ngModelChange)="changeQuantity()" ></p-dropdown>
+        </div>
+    </div>
+
+    <div class="right-menu-wrapper">
+        <div class="remove" (click)="removeClick()">Remove</div>
+        <div class="total-price">Total:
+            <span class="currency">$</span>
+            <span class="integer">{{totalPriceInteger}}</span>
+            <span class="decimal">{{totalPriceDecimal | number:'1.0-0'  }}</span>
+        </div>
+    </div>
+
+</div>
